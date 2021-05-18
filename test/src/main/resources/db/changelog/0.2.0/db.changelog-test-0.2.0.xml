@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+	<changeSet author="tamskint" id="changelog-poc-0.2.0">
+
+		<comment> create Client table </comment>
+		<createTable tableName="CLIENT" remarks="client table">
+			<column name="ID" type="bigint" remarks="Technical ID">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="FISRT_NAME" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_NAME" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="EMAIL" type="varchar(70)">
+			</column>
+			<column name="VERSION" type="bigint" remarks="version">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="CREATED_DATE" type="timestamp with time zone"
+				remarks="Record creation date">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED_DATE"
+				type="timestamp with time zone" remarks="Record last update date">
+				<constraints nullable="false" />
+			</column>
+			<column name="CREATED_BY" type="varchar(50)"
+				remarks="Created by">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED_BY" type="varchar(50)"
+				remarks="Last modified by">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<comment> create Account table </comment>
+		<createTable tableName="ACCOUNT" remarks="account table">
+			<column name="ACCOUNT_NUMBER" type="varchar(70)"
+				remarks="Technical ID">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="BALANCE" type="double">
+			</column>
+			<column name="OVERDRAFT" type="double">
+			</column>
+			<column name="RATE" type="double">
+			</column>
+			<column name="VERSION" type="bigint" remarks="version">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="ACCOUNT_TYPE" type="varchar(2)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="CLIENT_ID" type="bigint"
+				remarks="Foreign key to CLIENT">
+			</column>
+
+			<column name="CREATED_DATE" type="timestamp with time zone"
+				remarks="Record creation date">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED_DATE"
+				type="timestamp with time zone" remarks="Record last update date">
+				<constraints nullable="false" />
+			</column>
+			<column name="CREATED_BY" type="varchar(50)"
+				remarks="Created by">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED_BY" type="varchar(50)"
+				remarks="Last modified by">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<comment> create Operation table </comment>
+		<createTable tableName="OPERATION"
+			remarks="operation table">
+			<column name="ID" type="bigint" remarks="Technical ID">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="AMOUNT" type="bigint">
+			</column>
+			<column name="VERSION" type="bigint" remarks="version">
+				<constraints nullable="false" />
+			</column>
+			<column name="OPERATION_TYPE" type="char">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="ACCOUNT_NUMBER" type="varchar(70)"
+				remarks="Foreign key to ACCOUNT">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="CREATED_DATE" type="timestamp with time zone"
+				remarks="Record creation date">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED_DATE"
+				type="timestamp with time zone" remarks="Record last update date">
+				<constraints nullable="false" />
+			</column>
+			<column name="CREATED_BY" type="varchar(50)"
+				remarks="Created by">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED_BY" type="varchar(50)"
+				remarks="Last modified by">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+	</changeSet>
+
+</databaseChangeLog>

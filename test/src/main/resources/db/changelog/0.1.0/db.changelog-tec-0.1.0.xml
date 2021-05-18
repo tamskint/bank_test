@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+	<changeSet author="tamskint" id="changelog-tec-0.1.0">
+
+		<createSequence sequenceName="TEC_BUSSINESSID" cycle="false" incrementBy="10" minValue="1" maxValue="9223372036854775807" startValue="1" />
+		<createSequence sequenceName="TEC_TECHNICALID" cycle="false" incrementBy="10" minValue="1" maxValue="9223372036854775807" startValue="1" />
+
+	</changeSet>
+
+</databaseChangeLog>
